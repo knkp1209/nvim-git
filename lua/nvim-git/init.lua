@@ -47,7 +47,7 @@ function M.show_blame()
 					vim.api.nvim_buf_clear_namespace(bufnr, vim.g.my_namespace, 0, -1)
 					for linenr, info in ipairs(blame_info) do
 						if type(linenr) == "number" then
-							local text = info.date .. info.author
+							local text = info.date .. " " .. info.author
 							vim.api.nvim_buf_set_extmark(bufnr, vim.g.my_namespace, linenr - 1, 0, {
 								virt_text = { { text, "Comment" } },
 								virt_text_pos = "eol", -- 显示在行尾但不遮挡内容
